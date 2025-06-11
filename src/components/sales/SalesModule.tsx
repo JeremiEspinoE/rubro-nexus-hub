@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Search, FileText, CheckCircle, XCircle, Clock, Download, Eye } from "lucide-react";
+import { Search, FileText, CheckCircle, XCircle, Clock, Download, Eye, ShoppingCart } from "lucide-react";
+import POSSystem from './POSSystem';
 
 const SalesModule = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -101,18 +101,7 @@ const SalesModule = () => {
         </TabsList>
 
         <TabsContent value="pos">
-          <Card>
-            <CardHeader>
-              <CardTitle>Punto de Venta</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-center py-12">
-                <FileText className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
-                <p className="text-muted-foreground mb-4">Módulo de punto de venta en desarrollo</p>
-                <Button>Iniciar Nueva Venta</Button>
-              </div>
-            </CardContent>
-          </Card>
+          <POSSystem />
         </TabsContent>
 
         <TabsContent value="comprobantes">
