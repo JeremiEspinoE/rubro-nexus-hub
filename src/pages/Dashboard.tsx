@@ -3,6 +3,11 @@ import React, { useState } from 'react';
 import Sidebar from '@/components/dashboard/Sidebar';
 import TopBar from '@/components/dashboard/TopBar';
 import DashboardHome from '@/components/dashboard/DashboardHome';
+import SalesModule from '@/components/sales/SalesModule';
+import InventoryModule from '@/components/inventory/InventoryModule';
+import CustomersModule from '@/components/customers/CustomersModule';
+import CashModule from '@/components/cash/CashModule';
+import ReportsModule from '@/components/reports/ReportsModule';
 
 const Dashboard = () => {
   const [selectedIndustry] = useState('restaurante'); // En producción esto vendría del contexto/auth
@@ -14,40 +19,15 @@ const Dashboard = () => {
       case 'dashboard':
         return <DashboardHome />;
       case 'sales':
-        return (
-          <div className="p-6">
-            <h1 className="text-2xl font-bold text-foreground mb-4">Módulo de Ventas</h1>
-            <p className="text-muted-foreground">Punto de venta, historial y gestión de comprobantes electrónicos</p>
-          </div>
-        );
+        return <SalesModule />;
       case 'inventory':
-        return (
-          <div className="p-6">
-            <h1 className="text-2xl font-bold text-foreground mb-4">Gestión de Almacén</h1>
-            <p className="text-muted-foreground">Control de inventario, entradas, salidas y kardex</p>
-          </div>
-        );
+        return <InventoryModule />;
       case 'customers':
-        return (
-          <div className="p-6">
-            <h1 className="text-2xl font-bold text-foreground mb-4">Gestión de Clientes</h1>
-            <p className="text-muted-foreground">Base de datos de clientes con búsqueda automática por DNI/RUC</p>
-          </div>
-        );
+        return <CustomersModule />;
       case 'cash':
-        return (
-          <div className="p-6">
-            <h1 className="text-2xl font-bold text-foreground mb-4">Control de Caja</h1>
-            <p className="text-muted-foreground">Arqueo, historial de movimientos y cierre de turnos</p>
-          </div>
-        );
+        return <CashModule />;
       case 'reports':
-        return (
-          <div className="p-6">
-            <h1 className="text-2xl font-bold text-foreground mb-4">Reportes Avanzados</h1>
-            <p className="text-muted-foreground">Análisis de ventas, comparativas y reportes exportables</p>
-          </div>
-        );
+        return <ReportsModule />;
       case 'users':
         return (
           <div className="p-6">
