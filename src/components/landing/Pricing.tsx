@@ -1,8 +1,7 @@
-
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Check, Star } from "lucide-react";
+import { Check, Star, Shield } from "lucide-react";
 
 const Pricing = () => {
   const plans = [
@@ -175,7 +174,7 @@ const Pricing = () => {
             
             <div>
               <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <ShieldCheck className="w-8 h-8 text-primary" />
+                <Shield className="w-8 h-8 text-primary" />
               </div>
               <h4 className="font-semibold text-foreground mb-2">Datos Seguros</h4>
               <p className="text-sm text-muted-foreground">Tus datos están protegidos y siempre disponibles</p>

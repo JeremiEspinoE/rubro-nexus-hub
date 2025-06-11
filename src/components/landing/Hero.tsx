@@ -1,7 +1,6 @@
-
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ShoppingCart, Package, Utensils, Capsules } from "lucide-react";
+import { ShoppingCart, Package, Utensils, Pill } from "lucide-react";
 
 const Hero = () => {
   const industries = [
@@ -11,7 +10,7 @@ const Hero = () => {
       description: "Gestión de mesas, comandas y cocina"
     },
     {
-      icon: Capsules,
+      icon: Pill,
       name: "Botica",
       description: "Control de lotes, vencimientos y recetas"
     },
