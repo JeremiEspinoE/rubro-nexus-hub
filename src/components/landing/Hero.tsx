@@ -1,6 +1,8 @@
+
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ShoppingCart, Package, Utensils, Pill } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const industries = [
@@ -39,9 +41,11 @@ const Hero = () => {
             Con facturación electrónica SUNAT, control de inventario y módulos especializados.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="text-lg px-8 py-6 hover-lift">
-              Probar Demo Gratuito
-            </Button>
+            <Link to="/register">
+              <Button size="lg" className="text-lg px-8 py-6 hover-lift">
+                Probar Demo Gratuito
+              </Button>
+            </Link>
             <Button variant="outline" size="lg" className="text-lg px-8 py-6 hover-lift">
               Ver Planes
             </Button>
