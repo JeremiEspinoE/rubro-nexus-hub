@@ -10,7 +10,11 @@ import {
   Settings,
   Utensils,
   Pill,
-  User
+  User,
+  ChefHat,
+  QrCode,
+  Receipt,
+  Calculator
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
@@ -35,7 +39,10 @@ const Sidebar = ({ selectedIndustry, activeModule, onModuleChange }: SidebarProp
   const industryModules = {
     restaurante: [
       { id: 'tables', name: 'Gestión de Mesas', icon: Utensils },
-      { id: 'kitchen', name: 'Cocina', icon: Utensils }
+      { id: 'kitchen', name: 'Cocina', icon: ChefHat },
+      { id: 'orders', name: 'Comandas', icon: Receipt },
+      { id: 'qr-menu', name: 'Menú QR', icon: QrCode },
+      { id: 'split-bill', name: 'División de Cuenta', icon: Calculator }
     ],
     botica: [
       { id: 'prescriptions', name: 'Recetas', icon: Pill },

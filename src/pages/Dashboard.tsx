@@ -8,16 +8,17 @@ import InventoryModule from '@/components/inventory/InventoryModule';
 import CustomersModule from '@/components/customers/CustomersModule';
 import CashModule from '@/components/cash/CashModule';
 import ReportsModule from '@/components/reports/ReportsModule';
+import TableManagement from '@/components/restaurant/TableManagement';
+import KitchenManagement from '@/components/restaurant/KitchenManagement';
 
 const Dashboard = () => {
-  const [selectedIndustry] = useState('restaurante'); // En producción esto vendría del contexto/auth
   const [activeModule, setActiveModule] = useState('dashboard');
-  const [selectedBranch, setSelectedBranch] = useState('principal');
+  const [selectedIndustry] = useState(localStorage.getItem('selectedIndustry') || 'restaurante');
 
   const renderModule = () => {
     switch (activeModule) {
       case 'dashboard':
-        return <DashboardHome />;
+        return <DashboardHome selectedIndustry={selectedIndustry} />;
       case 'sales':
         return <SalesModule />;
       case 'inventory':
@@ -28,37 +29,57 @@ const Dashboard = () => {
         return <CashModule />;
       case 'reports':
         return <ReportsModule />;
+      case 'tables':
+        return <TableManagement />;
+      case 'kitchen':
+        return <KitchenManagement />;
+      case 'orders':
+        return (
+          <div className="p-6">
+            <h2 className="text-2xl font-bold mb-4">Gestión de Comandas</h2>
+            <div className="text-center py-12">
+              <p className="text-muted-foreground">Módulo de comandas por mozo en desarrollo</p>
+            </div>
+          </div>
+        );
+      case 'qr-menu':
+        return (
+          <div className="p-6">
+            <h2 className="text-2xl font-bold mb-4">Menú QR para Clientes</h2>
+            <div className="text-center py-12">
+              <p className="text-muted-foreground">Generación de códigos QR para pedidos de clientes</p>
+            </div>
+          </div>
+        );
+      case 'split-bill':
+        return (
+          <div className="p-6">
+            <h2 className="text-2xl font-bold mb-4">División de Cuenta</h2>
+            <div className="text-center py-12">
+              <p className="text-muted-foreground">Sistema de división de cuentas entre comensales</p>
+            </div>
+          </div>
+        );
       case 'users':
         return (
           <div className="p-6">
-            <h1 className="text-2xl font-bold text-foreground mb-4">Gestión de Usuarios</h1>
-            <p className="text-muted-foreground">Control de acceso, roles y permisos por sucursal</p>
+            <h2 className="text-2xl font-bold mb-4">Gestión de Usuarios</h2>
+            <div className="text-center py-12">
+              <p className="text-muted-foreground">Módulo de usuarios y permisos en desarrollo</p>
+            </div>
           </div>
         );
       case 'settings':
         return (
           <div className="p-6">
-            <h1 className="text-2xl font-bold text-foreground mb-4">Configuración</h1>
-            <p className="text-muted-foreground">Configuración de empresa, impresión y parámetros del sistema</p>
-          </div>
-        );
-      // Módulos específicos de restaurante
-      case 'tables':
-        return (
-          <div className="p-6">
-            <h1 className="text-2xl font-bold text-foreground mb-4">Gestión de Mesas</h1>
-            <p className="text-muted-foreground">Control de mesas, salones y estado de ocupación</p>
-          </div>
-        );
-      case 'kitchen':
-        return (
-          <div className="p-6">
-            <h1 className="text-2xl font-bold text-foreground mb-4">Módulo de Cocina</h1>
-            <p className="text-muted-foreground">Comandas, notificaciones y seguimiento de pedidos</p>
+            <h2 className="text-2xl font-bold mb-4">Configuración del Sistema</h2>
+            <div className="text-center py-12">
+              <p className="text-muted-foreground">Configuraciones generales del sistema</p>
+            </div>
           </div>
         );
       default:
-        return <DashboardHome />;
+        return <DashboardHome selectedIndustry={selectedIndustry} />;
     }
   };
 
@@ -70,13 +91,10 @@ const Dashboard = () => {
         onModuleChange={setActiveModule}
       />
       <div className="flex-1 flex flex-col overflow-hidden">
-        <TopBar 
-          selectedBranch={selectedBranch}
-          onBranchChange={setSelectedBranch}
-        />
-        <div className="flex-1 overflow-auto">
+        <TopBar />
+        <main className="flex-1 overflow-auto">
           {renderModule()}
-        </div>
+        </main>
       </div>
     </div>
   );
