@@ -1,10 +1,13 @@
-
 import React from 'react';
 import { Card } from "@/components/ui/card";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
 import { ShoppingCart, Package, CreditCard, Users, TrendingUp, AlertTriangle } from "lucide-react";
 
-const DashboardHome = () => {
+interface DashboardHomeProps {
+  selectedIndustry: string;
+}
+
+const DashboardHome = ({ selectedIndustry }: DashboardHomeProps) => {
   const salesData = [
     { name: 'Lun', ventas: 4000 },
     { name: 'Mar', ventas: 3000 },
@@ -64,7 +67,7 @@ const DashboardHome = () => {
   return (
     <div className="p-6 space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-foreground">Dashboard</h1>
+        <h1 className="text-2xl font-bold text-foreground">Dashboard - {selectedIndustry}</h1>
         <div className="text-sm text-muted-foreground">
           Último update: {new Date().toLocaleString()}
         </div>

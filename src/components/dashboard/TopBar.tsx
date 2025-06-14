@@ -12,11 +12,11 @@ import { Bell, Search, Settings, User } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
 interface TopBarProps {
-  selectedBranch: string;
-  onBranchChange: (branch: string) => void;
+  selectedBranch?: string;
+  onBranchChange?: (branch: string) => void;
 }
 
-const TopBar = ({ selectedBranch, onBranchChange }: TopBarProps) => {
+const TopBar = ({ selectedBranch = 'principal', onBranchChange }: TopBarProps) => {
   return (
     <div className="h-16 bg-background border-b border-border flex items-center justify-between px-6">
       {/* Left Side */}

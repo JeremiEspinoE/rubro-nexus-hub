@@ -14,6 +14,7 @@ import KitchenManagement from '@/components/restaurant/KitchenManagement';
 const Dashboard = () => {
   const [activeModule, setActiveModule] = useState('dashboard');
   const [selectedIndustry] = useState(localStorage.getItem('selectedIndustry') || 'restaurante');
+  const [selectedBranch, setSelectedBranch] = useState('principal');
 
   const renderModule = () => {
     switch (activeModule) {
@@ -91,7 +92,10 @@ const Dashboard = () => {
         onModuleChange={setActiveModule}
       />
       <div className="flex-1 flex flex-col overflow-hidden">
-        <TopBar />
+        <TopBar 
+          selectedBranch={selectedBranch}
+          onBranchChange={setSelectedBranch}
+        />
         <main className="flex-1 overflow-auto">
           {renderModule()}
         </main>

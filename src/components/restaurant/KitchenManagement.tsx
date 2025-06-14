@@ -1,10 +1,9 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Clock, Chef, AlertCircle, CheckCircle, Timer } from "lucide-react";
+import { Clock, ChefHat, AlertCircle, CheckCircle, Timer } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 
 interface OrdenCocina {
@@ -129,7 +128,7 @@ const KitchenManagement = () => {
         <h2 className="text-2xl font-bold">Gestión de Cocina</h2>
         <div className="flex gap-2">
           <Button variant="outline">
-            <Chef className="w-4 h-4 mr-2" />
+            <ChefHat className="w-4 h-4 mr-2" />
             Configurar Estaciones
           </Button>
         </div>
@@ -151,7 +150,7 @@ const KitchenManagement = () => {
         <Card>
           <CardContent className="p-4">
             <div className="flex items-center gap-2">
-              <Chef className="w-5 h-5 text-blue-600" />
+              <ChefHat className="w-5 h-5 text-blue-600" />
               <div>
                 <p className="text-sm text-muted-foreground">En Preparación</p>
                 <p className="text-2xl font-bold">{resumenCocina.preparando}</p>
